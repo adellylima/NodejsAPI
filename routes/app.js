@@ -7,8 +7,6 @@ module.exports = (app) => {
     router.get('/', function (req, res) {
         res.send('Esta é página principal!');
     });
-    router.get('/teste', function (req, res) {
-        res.send('Esta é a página teste');
-    });
+
     app.use('/',router);
 }

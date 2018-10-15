@@ -3,9 +3,11 @@
 module.exports = app => {
     var express = require('express');
     var produtosRouter = express.Router();
-    produtosRouter.route('')
-        .get(function (req, res) {
-            res.send("Exibindo a página principal...");
-        });
+    
+    const controller = require('../controllers/produtosController')();
+
+    produtosRouter.post('/', controller.post);
+    produtosRouter.get('/', controller.get);
+ 
     app.use('/produtos', produtosRouter)
 } 
