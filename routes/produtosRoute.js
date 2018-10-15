@@ -1,9 +1,13 @@
+'use strict';
 
-var express = require('express');
-var produtosRouter = express.Router();
-produtosRouter.route('')
-    .get(function (req,res) {
-         res.send("Exibindo a página principal...");
-     });
+module.exports = app => {
 
-module.exports = produtosRouter; 
+    const controller = require('../controllers/produtosController')();
+
+    app.post('/produtos', controller.post);
+    app.get('/produtos', controller.get);
+    app.put('/produtos/:id', controller.put);
+    app.delete('/produtos/:id', controller.delete);
+    app.search('/produtos/:id', controller.search);
+ 
+} 
