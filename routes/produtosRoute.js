@@ -8,6 +8,9 @@ module.exports = app => {
 
     produtosRouter.post('/', controller.post);
     produtosRouter.get('/', controller.get);
+    produtosRouter.put('/:id', controller.put);
+    produtosRouter.delete('/:id', controller.delete);
+    produtosRouter.search('/:id', controller.search);
  
     app.use('/produtos', produtosRouter)
 } 
