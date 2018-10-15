@@ -1,16 +1,13 @@
 'use strict';
 
 module.exports = app => {
-    var express = require('express');
-    var produtosRouter = express.Router();
-    
+
     const controller = require('../controllers/produtosController')();
 
-    produtosRouter.post('/', controller.post);
-    produtosRouter.get('/', controller.get);
-    produtosRouter.put('/:id', controller.put);
-    produtosRouter.delete('/:id', controller.delete);
-    produtosRouter.search('/:id', controller.search);
+    app.post('/produtos', controller.post);
+    app.get('/produtos', controller.get);
+    app.put('/produtos/:id', controller.put);
+    app.delete('/produtos/:id', controller.delete);
+    app.search('/produtos/:id', controller.search);
  
-    app.use('/produtos', produtosRouter)
 } 
